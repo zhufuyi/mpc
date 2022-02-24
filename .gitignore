@@ -1,0 +1,7 @@
+.idea/
+.vscode/
+.DS_Store
+*.exe
+*.exe~
+mpc
+vendor
