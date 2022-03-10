@@ -1,28 +1,46 @@
 ## mpc
 
-`mpc`是一个管理prometheus的配置文件自动化运维工具，
+`mpc` is a configuration file automation ops tool that manages prometheus
 
-特点：
-- 支持对prometheus配置文件的job、targets、labels三个对象增删改查。
-- 支持使prometheus配置生效。
-- 支持在远程服务器安装和启动exporter。
+### Features
 
-<br>
-
-使用场景：
-
-(1) 如果使用prometheus监控很多目标(例如n个linux、mysql、redis等)，每新增一个监控目标有三个步骤，第一步安装exporter，第二步把exporter的地址和端口添加到prometheus配置文件，第三步使修改后的prometheus配置生效。
-同样在prometheus剔除一个监控目标，也需要是三个步骤，第一步在prometheus删除目标地址，第二步使prometheus配置生效，第三步卸载exporter。
-
-(2) 如果监控目标需要打标签，prometheus就用标签来过滤筛选想要的监控数据。
-
-这些场景使用mpc命令来完成，不需要频繁登录不同服务器去操作，如果结合前端，可以实现在界面自动化操作。
+- Support for adding, deleting, and checking the jobs, targets, and labels objects of the prometheus configuration file.
+- Support for making prometheus configuration effective.
+- Support for installing and starting exporter on remote servers.
 
 <br>
 
-帮助命令：
+### Usage scenarios
+
+- If you use prometheus to monitor many targets (e.g. linux, mysql, redis, etc.), there are three steps for each new monitoring target, the first step is to install the exporter, the second step is to add the exporter's address and port to the prometheus configuration file, and the third step is to make the modified prometheus configuration take effect.The first step is to remove the target address from the prometheus configuration file, the second step is to make the prometheus configuration take effect, and the third step is to uninstall the exporter.
+- If a monitoring target needs to be tagged, prometheus uses tags to filter the desired monitoring data.
+
+These scenarios are done using the `mpc` command and do not require frequent logins to different servers to operate, and if combined with the front-end, can be automated in the interface.
+
+<br>
+
+### Usage
+Get  job targets
+> mpc get targets -f prometheus.yaml -n node_exporter
+
+Append new value to job targets
+> mpc add targets -f prometheus.yaml -n node_exporter -v 127.0.0.1:9100
+
+Delete address in job targets
+> mpc delete targets -f prometheus.yaml -n node_exporter -v 127.0.0.1:9100
+
+Replace job targets
+> mpc replace targets -f prometheus.yaml -n node_exporter -v 127.0.0.1:9100
+
+Install exporter on a remote server
+> mpc exec -u root -p 123456 -H 192.168.1.10 -P 22 -e node_exporter_install.sh -f node_exporter-1.3.1.linux-amd64.tar.gz
+
+<br>
+
+For more information on using the command, see the help.
 
 ```bash
+$ mpc -h
 manage prometheus configuration, add,delete,update job
 
 Usage:
