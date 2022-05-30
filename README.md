@@ -12,14 +12,17 @@
 
 ### Usage scenarios
 
-- If you use prometheus to monitor many targets (e.g. linux, mysql, redis, etc.), there are three steps for each new monitoring target, the first step is to install the exporter, the second step is to add the exporter's address and port to the prometheus configuration file, and the third step is to make the modified prometheus configuration take effect.The first step is to remove the target address from the prometheus configuration file, the second step is to make the prometheus configuration take effect, and the third step is to uninstall the exporter.
+- If you use prometheus to monitor many targets (e.g. linux, mysql, redis, etc.), there are three steps for each new monitoring target, the first step is to install the exporter, the second step is to add the exporter's address and port to the prometheus configuration file, and the third step is to make the modified prometheus configuration take effect. The steps for deleting a monitoring target are similar.
 - If a monitoring target needs to be tagged, prometheus uses tags to filter the desired monitoring data.
 
 These scenarios are done using the `mpc` command and do not require frequent logins to different servers to operate, and if combined with the front-end, can be automated in the interface.
 
+You can of course configure consul in prometheus so that consul automatically registers to discover monitoring targets
+
 <br>
 
 ### Usage
+
 Get  job targets
 > mpc get targets -f prometheus.yaml -n node_exporter
 
