@@ -3,9 +3,9 @@ package cmd
 import (
 	"errors"
 	"fmt"
-	"mpc/promConf"
 
 	"github.com/spf13/cobra"
+	"github.com/zhufuyi/mpc/promConf"
 )
 
 func deleteCommand() *cobra.Command {

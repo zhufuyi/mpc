@@ -1,8 +1,9 @@
 package main
 
 import (
-	"mpc/cmd"
 	"os"
+
+	"github.com/zhufuyi/mpc/cmd"
 )
 
 func main() {

@@ -5,10 +5,10 @@ import (
 	"errors"
 	"fmt"
 	"io/ioutil"
-	"mpc/gssh"
 	"time"
 
 	jsoniter "github.com/json-iterator/go"
+	"github.com/zhufuyi/mpc/gssh"
 
 	"github.com/spf13/cobra"
 )

@@ -23,19 +23,28 @@ You can of course configure consul in prometheus so that consul automatically re
 
 ### Usage
 
-Get  job targets
+**Install mpc**
+
+> go install github.com/zhufuyi/mpc@latest
+
+**Get  job targets**
+
 > mpc get targets -f prometheus.yaml -n node_exporter
 
-Append new value to job targets
+**Append new value to job targets**
+
 > mpc add targets -f prometheus.yaml -n node_exporter -v 127.0.0.1:9100
 
-Delete address in job targets
+**Delete address in job targets**
+
 > mpc delete targets -f prometheus.yaml -n node_exporter -v 127.0.0.1:9100
 
-Replace job targets
+**Replace job targets**
+
 > mpc replace targets -f prometheus.yaml -n node_exporter -v 127.0.0.1:9100
 
-Install exporter on a remote server
+**Install exporter on a remote server**
+
 > mpc exec -u root -p 123456 -H 192.168.1.10 -P 22 -e node_exporter_install.sh -f node_exporter-1.3.1.linux-amd64.tar.gz
 
 <br>

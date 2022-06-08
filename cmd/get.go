@@ -3,11 +3,11 @@ package cmd
 import (
 	"fmt"
 	"io/ioutil"
-	"mpc/promConf"
 	"os"
 	"strings"
 
 	"github.com/spf13/cobra"
+	"github.com/zhufuyi/mpc/promConf"
 )
 
 func getCommand() *cobra.Command {

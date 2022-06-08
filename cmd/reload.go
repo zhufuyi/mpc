@@ -3,9 +3,8 @@ package cmd
 import (
 	"fmt"
 
-	"mpc/promConf"
-
 	"github.com/spf13/cobra"
+	"github.com/zhufuyi/mpc/promConf"
 )
 
 func reloadCommand() *cobra.Command {

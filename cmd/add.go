@@ -4,9 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"mpc/promConf"
-
 	"github.com/spf13/cobra"
+	"github.com/zhufuyi/mpc/promConf"
 )
 
 func addCommand() *cobra.Command {
